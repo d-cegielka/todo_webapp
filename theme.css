@@ -1,0 +1,74 @@
+body {
+    background-image: url("bg2.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.circle-with-text {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic; */
+    font:italic bold 1.8em serif;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    margin:20px auto;
+    font-size: 25px;
+    padding: 15px;
+    display: flex;
+    height: 180px;
+    width: 180px;
+    color: black;
+    z-index: 2;
+    position: relative;
+  }
+
+  #add {
+    z-index: 1;
+    position: relative;
+    margin-top: -4em;
+    border-radius: 3em;
+    opacity: 0.8;
+    margin:-55px auto;
+  }
+
+  #addTask {
+      margin-top: 1em;
+  }
+
+  #todoListView {
+    opacity: 0.8;
+    border-radius: 1em;
+    margin: auto;
+  }
+
+  /* #searchTask {
+    opacity: 0.8;
+    text-align: center;
+    margin:auto;
+  } */
+
+  #search {
+    z-index: 1;
+    position: relative;
+    margin-top: -4em;
+    border-radius: 3em;
+    opacity: 0.8;
+    margin:-55px auto;
+    display: none;
+  }
+
+  #myForm input {
+    border-radius: 1em;
+  }
+
+  #menu button{
+    margin-top:20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #menu button:hover{
+    background-color: blanchedalmond;
+  }
