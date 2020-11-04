@@ -49,13 +49,13 @@ let initList = function () {
                 title: "Learn JS",
                 description: "Create a demo application for my TODO's",
                 place: "445",
-                dueDate: new Date(2019, 10, 16)
+                dueDate: new Date(2019, 9, 16)
             },
             {
                 title: "Lecture test",
                 description: "Quick test from the first three lectures",
                 place: "F6",
-                dueDate: new Date(2019, 10, 17)
+                dueDate: new Date(2019, 9, 17)
             }
         );
     }
@@ -91,19 +91,16 @@ let updateTodoList = function () {
 
     //add all elements
     let filterInput = (document.getElementById('inputSearch').value).toLowerCase();
-    let startDate = new Date(document.getElementById("startDate").value);
-    let endDate = new Date(document.getElementById("endDate").value);
-    for(let todo in todoList) {
-        if(
-            (filterInput.value == "") ||
+    for (let todo in todoList) {
+        if (
+            checkDate(new Date(todoList[todo].dueDate)) &&
+            ((filterInput.value == "") ||
             (todoList[todo].title.toLowerCase().includes(filterInput)) ||
-            (todoList[todo].description.toLowerCase().includes(filterInput)) ||
-            (todoList[todo].dueDate.value >= startDate && 
-                todoList[todo].dueDate.value <= endDate)
-        ) {
-            let newElement = document.createElement("p");
-            let newContent = document.createTextNode(todoList[todo].title + " " +
-                                                        todoList[todo].description);
+            (todoList[todo].description.toLowerCase().includes(filterInput)))
+        ) { 
+            let newElement = document.createElement("p"); 
+            let newContent = document.createTextNode((new Number(todo) + 1) + " " + todoList[todo].title + " " +
+                todoList[todo].description);
             newElement.appendChild(newContent);
             todoListDiv.appendChild(newElement);
         }
@@ -112,6 +109,25 @@ let updateTodoList = function () {
 
 let deleteTodo = function (index) {
     todoList.splice(index, 1);
+}
+
+let checkDate = function (dateToCheck) {
+    let startDate = new Date(document.getElementById("startDate").value);
+    let endDate = new Date(document.getElementById("endDate").value);
+    // if((!isNaN(startDate) || dateToCheck <= startDate)  && (!isNan(endDate) ||  dateToCheck >= endDate)) {
+    //     return false;
+    // }
+    // else return true;
+
+    if(!isNaN(startDate) && !isNaN(endDate)){
+        if(dateToCheck >= startDate && dateToCheck <= endDate){
+            return true;
+        } else return false;
+    } else return true;
+}
+
+let isEmpty = function(message) {
+    return (!message || message.length === 0);
 }
 
 setInterval(updateTodoList, 1000);
@@ -172,12 +188,12 @@ var btnSearchTask = document.getElementById('btnSearchTask');
 var searchDiv = document.getElementById('search');
 var addDiv = document.getElementById('add');
 
-btnAddTask.onclick = function() {
-      searchDiv.style.display = 'none';
-      addDiv.style.display = 'block'
+btnAddTask.onclick = function () {
+    searchDiv.style.display = 'none';
+    addDiv.style.display = 'block'
 };
 
-btnSearchTask.onclick = function() {
+btnSearchTask.onclick = function () {
     searchDiv.style.display = 'block';
     addDiv.style.display = 'none';
 }
