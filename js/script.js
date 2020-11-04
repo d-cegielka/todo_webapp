@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 let todoList = [];
 $(function () {
     $.ajax({
@@ -35,7 +35,7 @@ let updateJSONbin = function () {
             console.log(err.responseJSON);
         }
     });
-}
+};
 
 let updateTodoList = function () {
     let todoTable = $("#todoTableContent").find("tbody");
@@ -54,7 +54,7 @@ let updateTodoList = function () {
         ) {
             todoTable.append(
                 "<tr>" +
-                "<th scope='row'>" + (new Number(todo) + 1) + "</td>" +
+                "<th scope='row'>" + (Number(todo) + 1) + "</td>" +
                 "<td>" + todoList[todo].title + "</td>" +
                 "<td>" + todoList[todo].description + "</td>" +
                 "<td>" + todoList[todo].place + "</td>" +
@@ -64,13 +64,13 @@ let updateTodoList = function () {
             );
         }
     }
-}
+};
 
 let deleteTodo = function (index) {
     todoList.splice(index, 1);
     updateJSONbin();
     updateTodoList();
-}
+};
 
 let checkDate = function (dateToCheck) {
     let startDate = new Date($("#startDate").val());
@@ -82,14 +82,14 @@ let checkDate = function (dateToCheck) {
         } else return false;
     } else return true;
     
-}
+};
 
 setInterval(updateTodoList,1000);
 
 let setMinDueDate = function () {
-    var today = new Date().toISOString().split('T')[0];
+    let today = new Date().toISOString().split('T')[0];
     document.getElementsByName("dateOfTask")[0].setAttribute('min', today);
-}
+};
 setMinDueDate();
 
 let addTodo = function () {
@@ -126,7 +126,7 @@ let addTodo = function () {
     $('html, body').animate({
         scrollTop: $("#taskSection").offset().top
     }, 2000);
-}
+};
 
 let btnAddTask = $('#btnAddTask');
 let btnSearchTask = $('#btnSearchTask');
@@ -147,4 +147,4 @@ $(btnSearchTask).click(function () {
     addDiv.css({ 'display': 'none' });
     btnAddTask.removeClass("active");
     btnSearchTask.addClass("active");
-})
+});
