@@ -79,7 +79,7 @@ input[type="text"], input[type="date"] {
     background-color: aqua;
   } */
 
-  .checked{
-    text-decoration: line-through;
-    background:red;
-  }
+.checked {
+  text-decoration: line-through;
+  background: red;
+}

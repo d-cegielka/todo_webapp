@@ -59,7 +59,7 @@ let updateTodoList = function () {
                 "<td>" + todoList[todo].description + "</td>" +
                 "<td>" + todoList[todo].place + "</td>" +
                 "<td>" + todoList[todo].dueDate.split('T')[0] + "</td>" +
-                "<td class='text-center'>" + "<input class='btn btn-dark btn-sm' type='button' value='X' " +
+                "<td>" + "<input class='btn btn-dark btn-sm' type='button' value='X' " +
                 "onclick='deleteTodo(" + todo + ") '/> </td>" + "</tr>"
             );
         }
@@ -81,10 +81,10 @@ let checkDate = function (dateToCheck) {
             return true;
         } else return false;
     } else return true;
-    
+
 };
 
-setInterval(updateTodoList,1000);
+setInterval(updateTodoList, 1000);
 
 let setMinDueDate = function () {
     let today = new Date().toISOString().split('T')[0];
